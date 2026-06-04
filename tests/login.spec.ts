@@ -26,7 +26,7 @@ test ('Login invalide',{tag:["@invalide","@integration"]},async ({page})=>{
     await expect(page.locator('[data-testid="form-error"]')).toBeVisible()
 })
 
-test ('login',{tag:'@smoke'},async({page})=>{
+test ('login',{tag:'@sanity'},async({page})=>{
     // saisir email
      await page.locator("#login-email").fill(" client@boutique.qa")
     // saisir mot de passe 
@@ -48,6 +48,16 @@ test ('login to web',{tag:'@sanity'},async({page})=>{
     await expect(page).toHaveURL("https://api.efi-academy.com/e-commerce-test-api/client/shop.php")
 })
 test ('login inva',{tag:'@regression'},async({page})=>{
+    // saisir email
+     await page.locator("#login-email").fill(" client@boutique.qa")
+    // saisir mot de passe 
+     await page.locator("[data-testid='login-password']").fill("Client123!")
+    // clique sur se connecter
+     await page.getByRole("button",{name:"Se connecter"}).click()
+    // redirection vers l url boutique
+    await expect(page).toHaveURL("https://api.efi-academy.com/e-commerce-test-api/client/shop.php")
+})
+test ('login hocine',{tag:'@hocine'},async({page})=>{
     // saisir email
      await page.locator("#login-email").fill(" client@boutique.qa")
     // saisir mot de passe 
