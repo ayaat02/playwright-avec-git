@@ -1,6 +1,6 @@
 pipeline{
     agent {
-        docker { image 'jacoblincool/playwright:latest' }
+        docker { image 'jacoblincool/playwright:all' }
     }
     stages{
         stage('playwrigth install'){
