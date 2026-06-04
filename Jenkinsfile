@@ -3,14 +3,14 @@ pipeline{
         docker { image 'jacoblincool/playwright:latest' }
     }
     stages{
-        stage('verifier la version'){
-            steps{
-                sh'npx playwright --version'
-            }
-        }
         stage('playwrigth install'){
             steps{
                 sh'npm install'
+            }
+        }
+         stage('verifier la version'){
+            steps{
+                sh'npx playwright --version'
             }
         }
         stage('tester'){
