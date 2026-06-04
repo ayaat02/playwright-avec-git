@@ -39,7 +39,17 @@ pipeline{
                     }
                 }
             }
-            build job:"Jenkinsfile2"
+            build job:"Jenkinsfile2",
+                parameters{
+                    choice(name: 'BROWSER', value:'webkit')
+         
+                    choice(name: 'TAGS', value : '@regression')
+         
+                    booleanParam(name: 'CHECKBROWSER', value: true)
+
+                    booleanParam(name: 'CHECKTAGS', value: true)
+
+                }
             }
             
         }
