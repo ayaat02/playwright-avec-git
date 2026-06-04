@@ -15,6 +15,7 @@ test ('login valide',{tag:'@login'},async({page})=>{
     // redirection vers l url boutique
     await expect(page).toHaveURL("https://api.efi-academy.com/e-commerce-test-api/client/shop.php")
 })
+
 test ('Login invalide',{tag:["@invalide","@integration"]},async ({page})=>{
     await page.locator("#login-email").fill(" cliefsqfnt@boutique.qa")
     // saisir le champ mot de passe
@@ -23,4 +24,36 @@ test ('Login invalide',{tag:["@invalide","@integration"]},async ({page})=>{
     await page.getByRole("button",{name:"Se connecter"}).click()
     // Vérifier que le message d'erreur s'affiche
     await expect(page.locator('[data-testid="form-error"]')).toBeVisible()
+})
+
+test ('login',{tag:'@smoke'},async({page})=>{
+    // saisir email
+     await page.locator("#login-email").fill(" client@boutique.qa")
+    // saisir mot de passe 
+     await page.locator("[data-testid='login-password']").fill("Client123!")
+    // clique sur se connecter
+     await page.getByRole("button",{name:"Se connecter"}).click()
+    // redirection vers l url boutique
+    await expect(page).toHaveURL("https://api.efi-academy.com/e-commerce-test-api/client/shop.php")
+})
+
+test ('login to web',{tag:'@sanity'},async({page})=>{
+    // saisir email
+     await page.locator("#login-email").fill(" client@boutique.qa")
+    // saisir mot de passe 
+     await page.locator("[data-testid='login-password']").fill("Client123!")
+    // clique sur se connecter
+     await page.getByRole("button",{name:"Se connecter"}).click()
+    // redirection vers l url boutique
+    await expect(page).toHaveURL("https://api.efi-academy.com/e-commerce-test-api/client/shop.php")
+})
+test ('login inva',{tag:'@regression'},async({page})=>{
+    // saisir email
+     await page.locator("#login-email").fill(" client@boutique.qa")
+    // saisir mot de passe 
+     await page.locator("[data-testid='login-password']").fill("Client123!")
+    // clique sur se connecter
+     await page.getByRole("button",{name:"Se connecter"}).click()
+    // redirection vers l url boutique
+    await expect(page).toHaveURL("https://api.efi-academy.com/e-commerce-test-api/client/shop.php")
 })
