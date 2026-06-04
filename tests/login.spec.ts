@@ -57,7 +57,7 @@ test ('login inva',{tag:'@regression'},async({page})=>{
     // redirection vers l url boutique
     await expect(page).toHaveURL("https://api.efi-academy.com/e-commerce-test-api/client/shop.php")
 })
-test ('login hocine',{tag:'@hocine'},async({page})=>{
+test ('login hocine',{tag:'@hc'},async({page})=>{
     // saisir email
      await page.locator("#login-email").fill(" client@boutique.qa")
     // saisir mot de passe 
